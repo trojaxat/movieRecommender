@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet"
+    href="{{ url_for('static',
+    filename='main.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    
+  <div class="navbar d-flex  justify-content-between navbar-expand-lg navbar-light bg-dark">
+    <div class="">
+      <a href="{{ url_for('index') }}"><button class="m-1 btn btn-primary btn-lg" type="button">Home</button></a>
+      <a href="{{ url_for('recommendations') }}"><button class="m-1 btn btn-primary btn-lg" type="button">Recommendations</button></a>
+      <a href="{{ url_for('movies') }}"><button class="m-1 btn btn-primary btn-lg" type="button">Movies</button></a>
+      <a href="{{ url_for('users') }}"><button class="m-1 btn btn-primary btn-lg" type="button">Users</button></a>
+      <a href="{{ url_for('preferences') }}"><button class="m-1 btn btn-primary btn-lg" type="button">Preferences</button></a>
+    </div>
+    <div class="">
+      <div class="text-light">{{name}}</div>
+    </div>  
+  </div>
+
+  
+  <title>{% block fav %}{% endblock %}</title>
+</head>
+    <div class="fill jumbotron">
+    <div class="container">
+      <h1>{% block title %}{% endblock %} </h1>
+      {% block body %}{% endblock %}
+    </div>
+  </div>
+
+</html>

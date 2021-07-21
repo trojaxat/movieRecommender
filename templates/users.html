@@ -1,0 +1,29 @@
+{% extends "master.html" %}
+
+{% block fav %}
+Users 
+{% endblock %}
+
+{% block title %}
+<h1> Users </h1> 
+<h5> Wall of Fame </h5>
+{% endblock %}
+
+{% block body %}
+<body>
+<table class="test table table-striped table-hover table-condensed">
+      <thead class="table-secondary">
+            <th scope="info col">Id</td>
+            <th scope="info col">Name</td>
+            <th scope="info col">Number Of Ratings</td>
+      </thead>
+      {% for user in users %}
+      <tr>
+            <td class="element ">{{user.id}}</td>
+            <td class="element ">{{user.name}}</td>
+            <td class="element">{{user.numberOfRatings}}</td>
+      </tr>
+      {% endfor %}
+</table>
+</body>
+{% endblock %}

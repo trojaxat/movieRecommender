@@ -1,0 +1,58 @@
+{% extends "master.html" %}
+
+{% block fav %}
+Recommendations 
+{% endblock %}
+
+
+{% block title %} 
+<h1> Recommendations </h1> 
+<h5> {{info}}</h5>
+{% endblock %}
+
+{% block body %}
+<body>
+
+<form class="form" action={{ url_for('recommendations') }} method="post">
+      <div class="formRow" >
+            <div class="form-group formColumn form-menu-items dropdown">
+                  <select class="btn btn-primary dropdown-toggle" name="genre" id="genre" data-toggle="dropdown">Genre
+                  <span class="caret"></span>
+                  <ul class="dropdown-menu">
+                  {% for genre in genres %}
+                        {% if loop.index == 1 %}
+                              <option name="genre" id="genre" value="{{genre}}" class="dropdown-item"> Select a genre </option>
+                        {% else %}
+                              <option name="genre" id="genre" value="{{genre}}" class="dropdown-item"> {{genre}} </option>
+                        {% endif %}
+                  {% endfor %}
+                  </ul>
+                  </select>
+            </div>
+
+            <div class="form-group formColumn form-menu-items dropdown">
+                  <select class="btn btn-primary dropdown-toggle" id="rating" name="rating" data-toggle="dropdown">Rating
+                  <span class="caret"></span>
+                  <ul class="dropdown-menu">
+                        {% for rating_value in range(6) %}
+                              {% if rating_value == 0 %}
+                                    <option id="rating" name="rating" type="number" value="{{rating_value}}" class="dropdown-item"> Select a rating </option>
+                              {% else %}
+                                    <option id="rating" name="rating" type="number" value="{{rating_value}}" class="dropdown-item"> {{rating_value}} </option>
+                              {% endif %}
+                        {% endfor %}
+                  </ul>
+                  </select>
+            </div>
+            <button class="btn form-menu-items btn-primary" type="submit">Submit</button>      
+      </div>
+</form>
+
+<ul class="test">
+      {% for recommendation in recommendations %}
+            <ul class="element">{{recommendation.title}}</ul>
+      {% endfor %}
+</ul>
+
+</body>
+{% endblock %}

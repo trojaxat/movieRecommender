@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+
+{% block fav %} 
+Movies
+{% endblock %}
+
+{% block title %} 
+<h1> Movies </h1> 
+<h5> Top ten rated movies </h5>
+{% endblock %}
+
+{% block body %}
+<body>
+<table class="test table table-striped table-hover table-condensed">
+      <thead class="table-secondary">
+            <th scope="info col">Id</th>
+            <th scope="info col">Title</th>
+      </thead>
+      {% for movie in movies %}
+      <tr>
+            <td class="element">{{movie.id}}</td>
+            <td class="element ">{{movie.title}}</td>
+      </tr>
+      {% endfor %}
+</table>
+</body>
+{% endblock %}

@@ -1,0 +1,7 @@
+numpy
+Flask_Bootstrap
+pandas
+names
+matplotlib
+Flask
+scikit_learn

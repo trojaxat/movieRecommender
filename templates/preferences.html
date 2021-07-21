@@ -1,0 +1,61 @@
+{% extends "master.html" %}
+
+{% block fav %}
+Personalization 
+{% endblock %}
+
+{% block title %} 
+<h1>Personalized Recommendations </h1>
+<h5>Tick the box if you like the movie </h5>
+{% endblock %}
+
+{% block body %}
+<body>    
+
+    {% if suggestions is defined and suggestions|length > 0  %}
+    <div class="space-below">
+        <div class="test">
+        {% for suggestion in suggestions %}
+            <ul class="element">{{recommendation.title}}</ul>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <form class="d-flex" action={{ url_for('preferences') }} method="post">
+        <table class="table table-dark table-striped table-hover table-condensed flex-row">
+            <div class="d-flex flex-row">
+                <tr class="d-flex flex-row">
+                    <input class="element btn-primary" id="button" type="submit" value="Submit analysis">
+                </tr>
+            </div>
+            {% for movie_name in movie_names %}
+            <div class="d-flex flex-row">
+                <tr>
+                    <td class="element">
+                        {{movie_name}}
+                    </td>
+                    <td class="element">
+                        {% if preferences is not none %}
+                            {{preferences[loop.index]}}
+                        {% else %}
+                            No preference selected
+                        {% endif %}
+                    </td>
+                    <td class="element">
+                        <input 
+                            class="element" 
+                            type="checkbox"
+                            name="{{loop.index}}"
+                            {% if preferences[loop.index|string] is defined  %}
+                                checked
+                            {% endif %}
+                        > 
+                    </td> 
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+{% endblock %}

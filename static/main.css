@@ -1,0 +1,43 @@
+.test {
+  color: purple;
+  background-color: aqua;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.nav-bar,
+.form {
+  display: flex;
+}
+
+.formRow {
+  display: flex;
+}
+
+.formColumn {
+  justify-content: flex-start;
+}
+
+.form-menu-items {
+  margin: 5px;
+}
+
+.element {
+  padding: 1%;
+}
+
+.fill {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.space-below {
+  margin-bottom: 1%;
+}
