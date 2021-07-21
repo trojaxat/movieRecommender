@@ -36,6 +36,7 @@ def recommendations():
     genre, rating = checkRecommendationArgs()
     recommendations.genre = genre
     recommendations.ratingValue = rating
+    recommendations.ratings.getAverageRatings()
 
     recList = recommendations.getSpecificRecommendations()
 
