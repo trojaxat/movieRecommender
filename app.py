@@ -3,7 +3,6 @@ from flask import Flask, render_template, session
 from flask_bootstrap import Bootstrap
 from flask_session import Session
 from helper_functions import getSessionRecommendations, checkRecommendationArgs, getVerySpecialImage, checkPreferenceArgs
-import secrets
 from consts import MOVIES_TO_CHOOSE_FROM
 
 SESSION_TYPE = 'filesystem'
@@ -13,7 +12,6 @@ SESSION_TYPE = 'filesystem'
 def create_app():
     app = Flask(__name__, template_folder='templates')
     app.config.from_object(__name__)
-    app.secret_key = secrets.token_urlsafe(32)
     Session(app)
     Bootstrap(app)
     return app
